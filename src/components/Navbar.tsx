@@ -37,69 +37,17 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <motion.a
             href="#"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* Custom IGL Logo - Crown + Shield representing Leadership & Control */}
+            {/* IGL SIPfi Logo - Direct Image */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <div className="relative bg-gradient-primary p-2 rounded-xl shadow-lg">
-                <svg 
-                  width="36" 
-                  height="36" 
-                  viewBox="0 0 100 100" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="group-hover:scale-110 transition-transform"
-                >
-                  {/* Shield Base - Control & Security */}
-                  <path 
-                    d="M50 10 L80 25 L80 50 C80 70 65 85 50 95 C35 85 20 70 20 50 L20 25 Z" 
-                    fill="white" 
-                    opacity="0.9"
-                  />
-                  
-                  {/* Crown - Leadership */}
-                  <path 
-                    d="M35 35 L40 45 L50 40 L60 45 L65 35 L65 50 L35 50 Z" 
-                    fill="#10B981" 
-                    opacity="0.9"
-                  />
-                  <circle cx="35" cy="35" r="3" fill="#FCD34D" />
-                  <circle cx="50" cy="38" r="3" fill="#FCD34D" />
-                  <circle cx="65" cy="35" r="3" fill="#FCD34D" />
-                  
-                  {/* Chart Line - Growth */}
-                  <path 
-                    d="M32 70 L40 65 L48 68 L56 60 L68 63" 
-                    stroke="#1E40AF" 
-                    strokeWidth="3" 
-                    fill="none" 
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="32" cy="70" r="2.5" fill="#1E40AF" />
-                  <circle cx="40" cy="65" r="2.5" fill="#1E40AF" />
-                  <circle cx="48" cy="68" r="2.5" fill="#1E40AF" />
-                  <circle cx="56" cy="60" r="2.5" fill="#1E40AF" />
-                  <circle cx="68" cy="63" r="2.5" fill="#8B5CF6" />
-                </svg>
-              </div>
-            </div>
-            
-            {/* Brand Name */}
-            <div className="flex flex-col">
-              <span className={`text-2xl font-bold transition-colors ${
-                isScrolled ? 'text-gradient' : 'text-white'
-              }`}>
-                IGL SIPfi
-              </span>
-              <span className={`text-xs font-medium transition-colors ${
-                isScrolled ? 'text-gray-600' : 'text-white/80'
-              }`}>
-                Automated Crypto Investing
-              </span>
+              <img 
+                src="/igl-sipfi-logo.svg" 
+                alt="IGL SIPfi Logo" 
+                className="h-14 w-14 group-hover:scale-110 transition-transform"
+              />
             </div>
           </motion.a>
 
