@@ -15,9 +15,10 @@ import { AppNavbar } from './layout/AppNavbar';
 import { DCAPage } from './pages/dca/DCAPage';
 import { PortfolioPage } from './pages/portfolio/PortfolioPage';
 import { TransactionPage } from './pages/transaction/TransactionPage';
+import { SwapPage } from './pages/swap/SwapPage';
 import { CustomCursor } from './components/CustomCursor';
 
-type Page = 'landing' | 'dca' | 'portfolio' | 'transactions';
+type Page = 'landing' | 'dca' | 'portfolio' | 'transactions' | 'swap';
 
 const App = () => {
   // Initialize state from localStorage or default to 'landing'
@@ -32,6 +33,9 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('currentPage', currentPage);
     
+    // Close sidebar when changing pages
+    setIsSidebarOpen(false);
+    
     // Update body class based on current page
     if (currentPage === 'landing') {
       document.body.classList.add('landing-page');
@@ -45,6 +49,7 @@ const App = () => {
       case 'dca':
       case 'portfolio':
       case 'transactions':
+      case 'swap':
         return (
           <>
             <CustomCursor theme="app" />
@@ -56,6 +61,7 @@ const App = () => {
             {currentPage === 'dca' && <DCAPage onSidebarToggle={setIsSidebarOpen} />}
             {currentPage === 'portfolio' && <PortfolioPage />}
             {currentPage === 'transactions' && <TransactionPage />}
+            {currentPage === 'swap' && <SwapPage />}
           </>
         );
       case 'landing':

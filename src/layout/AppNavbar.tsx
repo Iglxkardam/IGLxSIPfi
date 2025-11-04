@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaChartLine, FaWallet, FaHistory } from 'react-icons/fa';
+import { FaChartLine, FaWallet, FaHistory, FaExchangeAlt } from 'react-icons/fa';
 
-type Page = 'landing' | 'dca' | 'portfolio' | 'transactions';
+type Page = 'landing' | 'dca' | 'portfolio' | 'transactions' | 'swap';
 
 interface AppNavbarProps {
-  currentPage: 'dca' | 'portfolio' | 'transactions';
+  currentPage: 'dca' | 'portfolio' | 'transactions' | 'swap';
   setCurrentPage: (page: Page) => void;
   sidebarOpen?: boolean;
 }
@@ -70,6 +70,18 @@ export const AppNavbar: React.FC<AppNavbarProps> = ({ currentPage, setCurrentPag
             >
               <FaHistory className="text-sm sm:text-base" />
               <span className="hidden sm:inline">Transactions</span>
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('swap')}
+              className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-5 py-1.5 sm:py-2 rounded-lg transition-all duration-200 font-medium text-xs sm:text-base ${
+                isActive('swap')
+                  ? 'bg-white/5 text-white backdrop-blur-md border border-white/20'
+                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <FaExchangeAlt className="text-sm sm:text-base" />
+              <span className="hidden sm:inline">Swap</span>
             </button>
           </div>
 
