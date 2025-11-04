@@ -100,14 +100,13 @@ export const TransactionPage: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen pt-20 pb-8 px-4 relative overflow-y-auto"
+      className="min-h-screen pt-20 pb-8 px-4 relative"
       style={{
         background: '#000',
         backgroundImage: `
           radial-gradient(circle at top right, rgba(121, 68, 154, 0.13), transparent),
           radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent)
-        `,
-        WebkitOverflowScrolling: 'touch'
+        `
       }}
     >
       <StarfieldBackground />

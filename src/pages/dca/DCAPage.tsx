@@ -516,6 +516,150 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                     </form>
                   </div>
                 </div>
+
+                {/* Animated Suggestion Chips - 3 Rows Below the search box */}
+                <div className="w-full mt-4 space-y-3">
+                  {/* Row 1 - SIP/DCA Strategies */}
+                  <motion.div 
+                    className="overflow-hidden relative"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1, duration: 0.5 }}
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+                    }}
+                  >
+                    <motion.div
+                      className="flex space-x-3"
+                      animate={{
+                        x: [0, -2000],
+                      }}
+                      transition={{
+                        duration: 50,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    >
+                      {[...Array(2)].map((_, index) => (
+                        <React.Fragment key={index}>
+                          <button onClick={() => setInputMessage('SIP $100 in BTC every Monday')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-orange-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🔄 SIP $100 in BTC every Monday
+                          </button>
+                          <button onClick={() => setInputMessage('Create DCA plan for ETH with $50 weekly')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-blue-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            💎 Create DCA plan for ETH with $50 weekly
+                          </button>
+                          <button onClick={() => setInputMessage('Set up monthly SIP for $200 in SOL')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-purple-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🎯 Set up monthly SIP for $200 in SOL
+                          </button>
+                          <button onClick={() => setInputMessage('Best DCA strategy for BTC and ETH portfolio')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-emerald-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            📊 Best DCA strategy for BTC and ETH portfolio
+                          </button>
+                          <button onClick={() => setInputMessage('Automate $75 weekly investment in top 3 cryptos')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-cyan-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            ⚡ Automate $75 weekly investment in top 3 cryptos
+                          </button>
+                          <button onClick={() => setInputMessage('Calculate returns on $500 monthly BTC SIP for 1 year')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-yellow-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🧮 Calculate returns on $500 monthly BTC SIP for 1 year
+                          </button>
+                        </React.Fragment>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Row 2 - Market Analysis & Prices */}
+                  <motion.div 
+                    className="overflow-hidden relative"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.2, duration: 0.5 }}
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+                    }}
+                  >
+                    <motion.div
+                      className="flex space-x-3"
+                      animate={{
+                        x: [-2000, 0],
+                      }}
+                      transition={{
+                        duration: 55,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    >
+                      {[...Array(2)].map((_, index) => (
+                        <React.Fragment key={index}>
+                          <button onClick={() => setInputMessage('BTC price today and market sentiment')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-orange-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            📈 BTC price today and market sentiment
+                          </button>
+                          <button onClick={() => setInputMessage('ETH performance in last 30 days')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-blue-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            📊 ETH performance in last 30 days
+                          </button>
+                          <button onClick={() => setInputMessage('Compare BTC vs ETH returns this year')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-purple-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            ⚖️ Compare BTC vs ETH returns this year
+                          </button>
+                          <button onClick={() => setInputMessage('Top 10 cryptos by market cap today')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-emerald-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🏆 Top 10 cryptos by market cap today
+                          </button>
+                          <button onClick={() => setInputMessage('SOL price prediction for next month')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-pink-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🔮 SOL price prediction for next month
+                          </button>
+                          <button onClick={() => setInputMessage('Analyze crypto market volatility this week')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-red-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            📉 Analyze crypto market volatility this week
+                          </button>
+                        </React.Fragment>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Row 3 - News & Trending Coins */}
+                  <motion.div 
+                    className="overflow-hidden relative"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.4, duration: 0.5 }}
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+                    }}
+                  >
+                    <motion.div
+                      className="flex space-x-3"
+                      animate={{
+                        x: [0, -2000],
+                      }}
+                      transition={{
+                        duration: 60,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    >
+                      {[...Array(2)].map((_, index) => (
+                        <React.Fragment key={index}>
+                          <button onClick={() => setInputMessage('Latest crypto news and updates')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-cyan-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            📰 Latest crypto news and updates
+                          </button>
+                          <button onClick={() => setInputMessage('Trending meme coins with high volume')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-pink-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🎭 Trending meme coins with high volume
+                          </button>
+                          <button onClick={() => setInputMessage('Recommend 5 altcoins for long-term investment')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-green-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            💰 Recommend 5 altcoins for long-term investment
+                          </button>
+                          <button onClick={() => setInputMessage('What are DeFi tokens gaining momentum?')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-purple-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            🚀 What are DeFi tokens gaining momentum?
+                          </button>
+                          <button onClick={() => setInputMessage('Show me best performing tokens today')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-yellow-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            ⭐ Show me best performing tokens today
+                          </button>
+                          <button onClick={() => setInputMessage('Explain crypto market fear and greed index')} className="flex-shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:border-orange-400/40 text-white text-xs sm:text-sm whitespace-nowrap transition-all duration-200">
+                            😱 Explain crypto market fear and greed index
+                          </button>
+                        </React.Fragment>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
           )}
@@ -525,8 +669,7 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
             className="flex-1 overflow-y-auto bg-transparent flex justify-center px-2 sm:px-4"
             style={{
               scrollbarWidth: 'thin',
-              scrollbarColor: 'rgba(255,255,255,0.2) transparent',
-              WebkitOverflowScrolling: 'touch'
+              scrollbarColor: 'rgba(255,255,255,0.2) transparent'
             }}
           >
             <div className="w-full max-w-4xl py-4 px-2 sm:p-6 space-y-3 sm:space-y-4">
