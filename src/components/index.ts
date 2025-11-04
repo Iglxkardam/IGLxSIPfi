@@ -5,6 +5,12 @@ export { Section } from './Section';
 export { AnimatedSection } from './AnimatedSection';
 export { ComingSoonModal } from './ComingSoonModal';
 export { Navbar } from './Navbar';
+export { IGLLogo } from './IGLLogo';
+export { StarfieldBackground } from './StarfieldBackground';
+export { ChatHistorySidebar } from './ChatHistorySidebar';
+export { CustomCursor } from './CustomCursor';
+export { GlitchText } from './GlitchText';
+export { TypingText } from './TypingText';
 
 // Section Components
 export { Hero } from './Hero';

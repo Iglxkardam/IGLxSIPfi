@@ -4,8 +4,20 @@ import { FaRocket, FaPlay, FaRobot, FaDollarSign, FaChartLine, FaLock } from 're
 import { Button } from './Button';
 import { ComingSoonModal } from './ComingSoonModal';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onStartInvesting?: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onStartInvesting }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const handleStartInvesting = () => {
+    if (onStartInvesting) {
+      onStartInvesting();
+    } else {
+      setIsModalOpen(true);
+    }
+  };
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero animate-gradient">
       {/* Animated background elements */}
@@ -85,7 +97,7 @@ export const Hero: React.FC = () => {
               variant="primary" 
               size="lg" 
               className="shadow-2xl"
-              onClick={() => setIsModalOpen(true)}
+              onClick={handleStartInvesting}
             >
               <FaRocket className="mr-2" />
               Start Investing
