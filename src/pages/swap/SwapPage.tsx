@@ -24,7 +24,7 @@ export const SwapPage: React.FC = () => {
   const [toAmount, setToAmount] = useState('');
   const [showFromTokens, setShowFromTokens] = useState(false);
   const [showToTokens, setShowToTokens] = useState(false);
-  const [slippage, setSlippage] = useState('0.5');
+  const [slippage] = useState('0.5');
 
   // Hide ALL cursors completely on swap page
   React.useEffect(() => {
