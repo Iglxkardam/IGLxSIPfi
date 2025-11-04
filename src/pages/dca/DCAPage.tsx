@@ -525,7 +525,8 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
             className="flex-1 overflow-y-auto bg-transparent flex justify-center px-2 sm:px-4"
             style={{
               scrollbarWidth: 'thin',
-              scrollbarColor: 'rgba(255,255,255,0.2) transparent'
+              scrollbarColor: 'rgba(255,255,255,0.2) transparent',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
             <div className="w-full max-w-4xl py-4 px-2 sm:p-6 space-y-3 sm:space-y-4">

@@ -88,15 +88,29 @@ export const ChatHistorySidebar: React.FC<ChatHistorySidebarProps> = ({
         onChange={(e) => handleToggle(e.target.checked)}
       />
 
+      {/* Backdrop Overlay for Mobile */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => handleToggle(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 md:hidden"
+        />
+      )}
+
       {/* Drawer List - Left Side, Responsive */}
       <motion.div
-        className="fixed left-0 top-0 h-screen w-[280px] sm:w-[320px] md:w-[360px] lg:w-[420px] bg-transparent pointer-events-none pt-20 sm:pt-24 transition-transform duration-500 ease-in-out overflow-hidden z-40"
+        className="fixed left-0 top-0 h-screen w-[280px] sm:w-[320px] md:w-[360px] lg:w-[420px] pointer-events-none pt-16 sm:pt-20 md:pt-24 transition-transform duration-500 ease-in-out overflow-hidden z-40"
         style={{
           transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+          background: 'linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%)',
+          backdropFilter: 'blur(10px)',
+          borderRight: '1px solid rgba(255, 255, 255, 0.1)'
         }}
         initial={false}
       >
-        <div className="h-full w-full overflow-y-auto overflow-x-hidden pointer-events-auto px-3 sm:px-4">
+        <div className="h-full w-full overflow-y-auto overflow-x-hidden pointer-events-auto px-3 sm:px-4" style={{ WebkitOverflowScrolling: 'touch' }}>
           {/* New Chat Button */}
           <motion.div
             initial={{ x: '-100%', opacity: 0 }}
