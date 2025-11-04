@@ -23,61 +23,62 @@ export const AppNavbar: React.FC<AppNavbarProps> = ({ currentPage, setCurrentPag
       }}
       transition={{ duration: 0.5, ease: 'easeInOut' }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          {/* Logo - Responsive */}
           <button 
             onClick={() => setCurrentPage('landing')}
-            className="flex items-center space-x-2.5 text-xl font-bold text-white hover:opacity-90 transition-opacity"
+            className="flex items-center space-x-1.5 sm:space-x-2.5 text-lg sm:text-xl font-bold text-white hover:opacity-90 transition-opacity"
           >
-            <img src="/igl-sipfi-logo.svg" alt="IGL" className="w-12 h-12 hover:scale-110 transition-transform" />
+            <img src="/igl-sipfi-logo.svg" alt="IGL" className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform" />
             <span className="tracking-tight"></span>
           </button>
 
-          {/* Navigation */}
-          <div className="flex items-center space-x-2">
+          {/* Navigation - Responsive */}
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <button
               onClick={() => setCurrentPage('dca')}
-              className={`flex items-center space-x-2 px-5 py-2 rounded-lg transition-all duration-200 font-medium ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-5 py-1.5 sm:py-2 rounded-lg transition-all duration-200 font-medium text-xs sm:text-base ${
                 isActive('dca')
                   ? 'bg-white/5 text-white backdrop-blur-md border border-white/20'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              <FaChartLine className="text-base" />
-              <span>DCA</span>
+              <FaChartLine className="text-sm sm:text-base" />
+              <span className="hidden sm:inline">DCA</span>
             </button>
 
             <button
               onClick={() => setCurrentPage('portfolio')}
-              className={`flex items-center space-x-2 px-5 py-2 rounded-lg transition-all duration-200 font-medium ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-5 py-1.5 sm:py-2 rounded-lg transition-all duration-200 font-medium text-xs sm:text-base ${
                 isActive('portfolio')
                   ? 'bg-white/5 text-white backdrop-blur-md border border-white/20'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              <FaWallet className="text-base" />
-              <span>Portfolio</span>
+              <FaWallet className="text-sm sm:text-base" />
+              <span className="hidden sm:inline">Portfolio</span>
             </button>
 
             <button
               onClick={() => setCurrentPage('transactions')}
-              className={`flex items-center space-x-2 px-5 py-2 rounded-lg transition-all duration-200 font-medium ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-5 py-1.5 sm:py-2 rounded-lg transition-all duration-200 font-medium text-xs sm:text-base ${
                 isActive('transactions')
                   ? 'bg-white/5 text-white backdrop-blur-md border border-white/20'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              <FaHistory className="text-base" />
-              <span>Transactions</span>
+              <FaHistory className="text-sm sm:text-base" />
+              <span className="hidden sm:inline">Transactions</span>
             </button>
           </div>
 
-          {/* Connect Wallet Button */}
+          {/* Connect Wallet Button - Responsive */}
           <div className="flex items-center">
-            <button className="flex items-center space-x-2 px-5 py-2.5 bg-white/5 backdrop-blur-md border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-200">
-              <FaWallet className="text-base" />
-              <span>Connect Wallet</span>
+            <button className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white/5 backdrop-blur-md border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-200 text-xs sm:text-base">
+              <FaWallet className="text-sm sm:text-base" />
+              <span className="hidden sm:inline">Connect Wallet</span>
+              <span className="sm:hidden">Connect</span>
             </button>
           </div>
         </div>

@@ -88,15 +88,15 @@ export const ChatHistorySidebar: React.FC<ChatHistorySidebarProps> = ({
         onChange={(e) => handleToggle(e.target.checked)}
       />
 
-      {/* Drawer List - Left Side */}
+      {/* Drawer List - Left Side, Responsive */}
       <motion.div
-        className="fixed left-0 top-0 h-screen w-[360px] md:w-[420px] bg-transparent pointer-events-none pt-24 transition-transform duration-500 ease-in-out overflow-hidden z-40"
+        className="fixed left-0 top-0 h-screen w-[280px] sm:w-[320px] md:w-[360px] lg:w-[420px] bg-transparent pointer-events-none pt-20 sm:pt-24 transition-transform duration-500 ease-in-out overflow-hidden z-40"
         style={{
           transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
         }}
         initial={false}
       >
-        <div className="h-full w-full overflow-y-auto overflow-x-hidden pointer-events-auto px-4">
+        <div className="h-full w-full overflow-y-auto overflow-x-hidden pointer-events-auto px-3 sm:px-4">
           {/* New Chat Button */}
           <motion.div
             initial={{ x: '-100%', opacity: 0 }}
@@ -142,16 +142,16 @@ export const ChatHistorySidebar: React.FC<ChatHistorySidebarProps> = ({
               >
                 <button
                   onClick={() => handleChatSelect(chat.id)}
-                  className="w-full text-left block bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-sm rounded-lg p-3 transition-all duration-200"
+                  className="w-full text-left block bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-sm rounded-lg p-2 sm:p-3 transition-all duration-200"
                 >
-                  <div className="flex flex-col space-y-1">
-                    <h3 className="text-white/90 font-semibold text-sm">
+                  <div className="flex flex-col space-y-0.5 sm:space-y-1">
+                    <h3 className="text-white/90 font-semibold text-xs sm:text-sm">
                       {chat.title}
                     </h3>
-                    <p className="text-gray-400 text-xs line-clamp-1">
+                    <p className="text-gray-400 text-[10px] sm:text-xs line-clamp-1">
                       {chat.preview}
                     </p>
-                    <p className="text-gray-500 text-xs">
+                    <p className="text-gray-500 text-[10px] sm:text-xs">
                       {chat.timestamp.toLocaleDateString('en-US', { 
                         month: 'short', 
                         day: 'numeric'
@@ -165,13 +165,13 @@ export const ChatHistorySidebar: React.FC<ChatHistorySidebarProps> = ({
         </div>
       </motion.div>
 
-      {/* Hamburger Label/Button - Left Side */}
+      {/* Hamburger Label/Button - Left Side, Responsive */}
       <label
         htmlFor="hamburger"
-        className="fixed top-4 left-4 z-50 flex items-center justify-center h-11 w-11 cursor-pointer bg-transparent backdrop-blur-sm rounded-lg transition-all duration-200"
+        className="fixed top-3 sm:top-4 left-3 sm:left-4 z-50 flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 cursor-pointer bg-transparent backdrop-blur-sm rounded-lg transition-all duration-200"
       >
         {/* Hamburger Icon */}
-        <div className="relative w-6 h-5 flex flex-col justify-center items-center">
+        <div className="relative w-5 h-4 sm:w-6 sm:h-5 flex flex-col justify-center items-center">
           <motion.span
             className="absolute w-full h-0.5 bg-white"
             animate={{

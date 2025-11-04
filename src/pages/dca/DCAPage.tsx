@@ -357,9 +357,9 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                 transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 className="w-full max-w-4xl px-8"
               >
-                {/* Header in center */}
+                {/* Header in center - Responsive */}
                 <motion.div 
-                  className="flex items-center justify-center mb-4 relative"
+                  className="flex items-center justify-center mb-4 relative px-4"
                   initial={{ x: 0 }}
                   animate={{
                     x: [0, 0, -48, -42]
@@ -371,7 +371,7 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                     ease: [0.22, 1, 0.16, 1]
                   }}
                 >
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
                     {/* Logo Animation - Physics-based Curved Trajectory */}
                     <motion.div
                       className="relative z-20"
@@ -415,14 +415,14 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                               ease: [0.22, 1, 0.36, 1]
                             }}
                           >
-                            <img src="/igl-sipfi-logo.svg" alt="IGL" className="w-16 h-16" />
+                            <img src="/igl-sipfi-logo.svg" alt="IGL" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16" />
                           </motion.div>
                         </motion.div>
                       </motion.div>
                     </motion.div>
                     
                     {/* Text with "IGL" being pushed and squashed */}
-                    <h1 className="text-4xl md:text-5xl font-bold text-white flex items-center">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white flex items-center">
                       <motion.span
                         className="inline-block origin-top"
                         initial={{ scaleY: 1, opacity: 1, y: 0, x: 0, rotate: 0 }}
@@ -449,7 +449,7 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                         IGL
                       </motion.span>
                       <motion.span 
-                        className="ml-2 inline-block"
+                        className="ml-1 sm:ml-2 inline-block"
                         initial={{ x: 0, scale: 1 }}
                         animate={{
                           x: [0, 0, -10, 0],
@@ -467,48 +467,48 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                     </h1>
                   </div>
                 </motion.div>
-                <p className="text-gray-300 text-sm mb-8 text-center">
+                <p className="text-gray-300 text-xs sm:text-sm mb-6 sm:mb-8 text-center px-4">
                   DCA strategies, Trade crypto, Market analysis, BTC/ETH, and more...
                 </p>
 
-                {/* Search Box with Double Border */}
-                <div className="relative">
+                {/* Search Box with Double Border - Responsive */}
+                <div className="relative w-full">
                   {/* Outer border */}
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-white/10 via-white/5 to-white/10 p-[1px]">
-                    <div className="absolute inset-[1px] rounded-3xl bg-gradient-to-r from-white/5 via-white/3 to-white/5 p-[1px]">
-                      <div className="w-full h-full rounded-3xl bg-black/20"></div>
+                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-white/10 via-white/5 to-white/10 p-[1px]">
+                    <div className="absolute inset-[1px] rounded-2xl sm:rounded-3xl bg-gradient-to-r from-white/5 via-white/3 to-white/5 p-[1px]">
+                      <div className="w-full h-full rounded-2xl sm:rounded-3xl bg-black/20"></div>
                     </div>
                   </div>
                   {/* Content */}
-                  <div className="relative bg-white/[0.01] backdrop-blur-md rounded-3xl shadow-sm px-6 py-4">
+                  <div className="relative bg-white/[0.01] backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-sm px-4 sm:px-6 py-3 sm:py-4">
                     <form onSubmit={handleSendMessage}>
-                      <div className="relative mb-3">
+                      <div className="relative mb-2 sm:mb-3">
                         <input
                           type="text"
                           value={inputMessage}
                           onChange={(e) => setInputMessage(e.target.value)}
                           placeholder="Ask AI anything..."
-                          className="w-full px-6 py-4 text-base bg-transparent border-none focus:outline-none text-white placeholder-gray-400"
+                          className="w-full px-4 sm:px-6 py-3 sm:py-4 pr-12 sm:pr-14 text-sm sm:text-base bg-transparent border-none focus:outline-none text-white placeholder-gray-400"
                         />
                         <button
                           type="submit"
                           disabled={!inputMessage.trim()}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-emerald-400 text-white rounded-xl hover:bg-emerald-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
+                          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-emerald-400 text-white rounded-lg sm:rounded-xl hover:bg-emerald-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
                         >
-                          <FaPaperPlane className="text-sm" />
+                          <FaPaperPlane className="text-xs sm:text-sm" />
                         </button>
                       </div>
-                      {/* Bottom toolbar like ChainOpera */}
-                      <div className="flex items-center space-x-4 pt-2">
-                        <button type="button" className="flex items-center space-x-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white">
-                          <span className="w-5 h-5 bg-blue-400/20 rounded-full"></span>
+                      {/* Bottom toolbar - Responsive */}
+                      <div className="flex items-center space-x-2 sm:space-x-4 pt-2 overflow-x-auto">
+                        <button type="button" className="flex items-center space-x-1.5 sm:space-x-2 px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-gray-300 hover:text-white whitespace-nowrap">
+                          <span className="w-4 h-4 sm:w-5 sm:h-5 bg-blue-400/20 rounded-full"></span>
                           <span>IGL Agent</span>
                         </button>
-                        <button type="button" className="flex items-center space-x-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white">
+                        <button type="button" className="flex items-center space-x-1.5 sm:space-x-2 px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-gray-400 hover:text-white whitespace-nowrap">
                           <span>🌐</span>
                           <span>DeepSearch</span>
                         </button>
-                        <button type="button" className="flex items-center space-x-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white">
+                        <button type="button" className="flex items-center space-x-1.5 sm:space-x-2 px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-gray-400 hover:text-white whitespace-nowrap">
                           <span>💡</span>
                           <span>Think</span>
                         </button>
@@ -520,20 +520,20 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
             </div>
           )}
 
-          {/* Chat Messages - Centered with max-width */}
+          {/* Chat Messages - Responsive */}
           <div 
-            className="flex-1 overflow-y-auto bg-transparent flex justify-center"
+            className="flex-1 overflow-y-auto bg-transparent flex justify-center px-2 sm:px-4"
             style={{
               scrollbarWidth: 'thin',
               scrollbarColor: 'rgba(255,255,255,0.2) transparent'
             }}
           >
-            <div className="w-full max-w-4xl p-6 space-y-4">
+            <div className="w-full max-w-4xl py-4 px-2 sm:p-6 space-y-3 sm:space-y-4">
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ 
                     duration: 0.3,
                     ease: [0.4, 0, 0.2, 1]
@@ -541,39 +541,39 @@ export const DCAPage: React.FC<DCAPageProps> = ({ onSidebarToggle }) => {
                   className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                 {message.sender === 'user' ? (
-                  // User message - compact with border
-                  <div className="flex items-start space-x-3 max-w-xs md:max-w-md lg:max-w-lg flex-row-reverse space-x-reverse">
+                  // User message - compact with border, responsive
+                  <div className="flex items-start space-x-2 sm:space-x-3 max-w-[85%] sm:max-w-xs md:max-w-md lg:max-w-lg flex-row-reverse space-x-reverse">
                     {/* User Avatar */}
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-white/5 backdrop-blur-sm border border-white/5">
-                      <FaUser className="text-emerald-400 text-sm" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-white/5 backdrop-blur-sm border border-white/5">
+                      <FaUser className="text-emerald-400 text-xs sm:text-sm" />
                     </div>
                     
                     {/* User Message Bubble */}
-                    <div className="px-4 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/5 text-white">
-                      <p className="text-sm leading-relaxed">{message.text}</p>
-                      <p className="text-xs mt-1 text-gray-400">
+                    <div className="px-3 py-2 sm:px-4 sm:py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/5 text-white">
+                      <p className="text-xs sm:text-sm leading-relaxed break-words">{message.text}</p>
+                      <p className="text-[10px] sm:text-xs mt-1 text-gray-400">
                         {message.timestamp.toLocaleTimeString()}
                       </p>
                     </div>
                   </div>
                 ) : (
-                  // AI message - full width with transparent border
-                  <div className="flex items-start space-x-3 w-full">
+                  // AI message - full width with transparent border, responsive
+                  <div className="flex items-start space-x-2 sm:space-x-3 w-full">
                     {/* AI Avatar */}
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-white/5 backdrop-blur-sm border border-white/10">
-                      <img src="/igl-sipfi-logo.svg" alt="IGL" className="w-8 h-8 object-contain" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-white/5 backdrop-blur-sm border border-white/10">
+                      <img src="/igl-sipfi-logo.svg" alt="IGL" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                     </div>
                     
                     {/* AI Message Bubble - Full Width */}
-                    <div className="flex-1 px-4 py-3 rounded-2xl bg-transparent text-white">
-                      <p className="text-sm leading-relaxed">
+                    <div className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl bg-transparent text-white">
+                      <p className="text-xs sm:text-sm leading-relaxed break-words">
                         <TypingText 
                           text={message.text} 
                           className=""
                           speed={150}
                         />
                       </p>
-                      <p className="text-xs mt-1 text-gray-400">
+                      <p className="text-[10px] sm:text-xs mt-1 text-gray-400">
                         {message.timestamp.toLocaleTimeString()}
                       </p>
                     </div>
