@@ -24,7 +24,6 @@ export function enforceCSP() {
 
 // Detect and prevent UI manipulation attacks
 export class SecurityMonitor {
-  private originalHTML: string = '';
   private checkInterval: NodeJS.Timeout | null = null;
   private criticalElements: Map<string, string> = new Map();
 
@@ -249,7 +248,7 @@ export function verifyTransactionSafety(tx: TransactionData): {
 export function protectClipboard() {
   let lastCopied = '';
 
-  document.addEventListener('copy', (e) => {
+  document.addEventListener('copy', () => {
     const selection = document.getSelection()?.toString();
     if (selection && /^0x[a-fA-F0-9]{40}$/.test(selection)) {
       lastCopied = selection;
