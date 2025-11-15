@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, lazy, Suspense } from 'react';
+﻿import { useState, useEffect, lazy, Suspense, memo } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Problem } from './components/Problem';
@@ -15,6 +15,8 @@ import { AppNavbar } from './layout/AppNavbar';
 import { CustomCursor } from './components/CustomCursor';
 import { BackgroundMusic } from './components/BackgroundMusic';
 import { useWalletStorageManager } from './hooks/useWalletStorageManager';
+import ErrorBoundary from './components/ErrorBoundary';
+import { PageSkeleton } from './components/Skeleton';
 
 // Lazy load heavy page components
 const DCAPage = lazy(() => import('./pages/dca/DCAPage').then(module => ({ default: module.DCAPage })));
@@ -72,11 +74,7 @@ const App = () => {
               setCurrentPage={setCurrentPage}
               sidebarOpen={isSidebarOpen}
             />
-            <Suspense fallback={
-              <div className="min-h-screen flex items-center justify-center bg-black">
-                <div className="text-white">Loading...</div>
-              </div>
-            }>
+            <Suspense fallback={<PageSkeleton />}>
               {currentPage === 'dca' && <DCAPage onSidebarToggle={setIsSidebarOpen} />}
               {currentPage === 'market' && <MarketPage />}
               {currentPage === 'portfolio' && <PortfolioPage />}
@@ -111,11 +109,11 @@ const App = () => {
   };
 
   return (
-    <>
+    <ErrorBoundary>
       {renderPage()}
       <BackgroundMusic />
-    </>
+    </ErrorBoundary>
   );
 };
 
-export default App;
+export default memo(App);

@@ -1,0 +1,48 @@
+{
+  "name": "SipLedger - DeFi Investment Platform",
+  "short_name": "SipLedger",
+  "description": "AI-powered DeFi investment platform with smart automation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "business"],
+  "shortcuts": [
+    {
+      "name": "DCA Investment",
+      "short_name": "DCA",
+      "description": "Dollar Cost Averaging",
+      "url": "/?page=dca",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Swap Tokens",
+      "short_name": "Swap",
+      "description": "Token swapping",
+      "url": "/?page=swap",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Portfolio",
+      "description": "View portfolio",
+      "url": "/?page=portfolio",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}
