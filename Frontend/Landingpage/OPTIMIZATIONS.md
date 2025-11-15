@@ -1,6 +1,7 @@
 # 🚀 Performance & Security Optimizations for 100k+ Users
 
 ## Overview
+
 This document outlines all optimizations implemented to handle 100,000+ concurrent users with excellent performance and security.
 
 ---
@@ -8,6 +9,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🛡️ **1. Error Handling & Crash Prevention**
 
 ### ErrorBoundary Component
+
 - **Location**: `src/components/ErrorBoundary.tsx`
 - **Purpose**: Prevents entire app from crashing when a component fails
 - **Features**:
@@ -24,6 +26,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 💾 **2. Storage Optimization**
 
 ### IndexedDB Service
+
 - **Location**: `src/utils/indexedDBService.ts`
 - **Problem Solved**: localStorage has 5-10MB limit, blocks main thread
 - **Features**:
@@ -34,6 +37,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
   - Automatic fallback to localStorage if IndexedDB fails
 
 **Storage Stores**:
+
 - `wallets`: User wallet data
 - `transactions`: Transaction history
 - `chatHistory`: AI chat conversations
@@ -46,21 +50,25 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## ⚡ **3. Performance Utilities**
 
 ### Debouncing & Throttling
+
 - **Location**: `src/utils/performanceUtils.ts`
 - **Purpose**: Prevent API rate limiting and excessive calls
 
 **Functions**:
+
 - `debounce()`: Delays function execution until user stops typing
 - `throttle()`: Limits function calls to once per time period
 - `useDebounce()`: React hook for debounced values
 - `useThrottle()`: React hook for throttled callbacks
 
 **Use Cases**:
+
 - Search inputs (debounce 300ms)
 - Scroll events (throttle 100ms)
 - API calls (debounce 500ms)
 
 ### Device Detection
+
 - `isLowEndDevice()`: Detects low-end devices
 - `getNetworkSpeed()`: Checks connection speed
 - Automatically reduces animations on slow devices
@@ -72,10 +80,12 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🔒 **4. Security Measures**
 
 ### Input Sanitization
+
 - **Location**: `src/utils/securityUtils.ts`
 - **Protection Against**: XSS, SQL Injection, Script Injection
 
 **Functions**:
+
 - `sanitizeHTML()`: Removes dangerous HTML/scripts
 - `sanitizeInput()`: Cleans user text input
 - `sanitizeAddress()`: Validates wallet addresses
@@ -84,6 +94,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 - `validateAmount()`: Validates transaction amounts
 
 ### Rate Limiting
+
 - `RateLimiter` class prevents API abuse
 - Configurable request limits per time window
 - Tracks requests per user/IP
@@ -95,10 +106,12 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🎨 **5. UI/UX Optimizations**
 
 ### Skeleton Loaders
+
 - **Location**: `src/components/Skeleton.tsx`
 - **Purpose**: Better perceived performance during loading
 
 **Components**:
+
 - `Skeleton`: Base skeleton component
 - `CardSkeleton`: Card loading state
 - `TableSkeleton`: Table loading state
@@ -108,9 +121,11 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 **Impact**: Users perceive app as 2x faster
 
 ### CSS Optimizations
+
 - **Location**: `src/index.css`
 
 **Features**:
+
 - GPU acceleration with `will-change` hints
 - Reduced motion for accessibility
 - Shimmer animation for skeletons
@@ -124,9 +139,11 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 📦 **6. Bundle Size Optimization**
 
 ### Vite Configuration
+
 - **Location**: `vite.config.ts`
 
 **Optimizations**:
+
 - Code splitting for vendor chunks
 - React, animations, Web3 libs in separate chunks
 - Tree shaking removes unused code
@@ -135,6 +152,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 - CSS code splitting enabled
 
 **Bundle Sizes**:
+
 - React vendor: ~150KB
 - Web3 vendor: ~200KB
 - Animation vendor: ~100KB
@@ -148,10 +166,12 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🔄 **7. Progressive Web App (PWA)**
 
 ### Service Worker
+
 - **Location**: `public/sw.js`
 - **Purpose**: Offline functionality and caching
 
 **Features**:
+
 - Caches static assets for offline use
 - Network-first strategy for API calls
 - Cache-first strategy for static files
@@ -159,6 +179,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 - Push notification support (future)
 
 ### Manifest
+
 - **Location**: `public/manifest.json`
 - Enables "Add to Home Screen"
 - Native app-like experience
@@ -172,12 +193,14 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🎯 **8. React Performance**
 
 ### Component Optimizations
+
 - `memo()` for expensive components
 - `useMemo()` for computed values
 - `useCallback()` for function references
 - Lazy loading for route components
 
 **Optimized Components**:
+
 - All page components (DCA, Swap, Portfolio, etc.)
 - Heavy lists with virtualization ready
 - Chart components with data memoization
@@ -189,11 +212,13 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 📊 **9. Data Handling**
 
 ### Virtual Scrolling (Ready)
+
 - Structure in place for react-window
 - Can handle 10,000+ items in lists
 - Only renders visible items
 
 ### Pagination
+
 - IndexedDB supports paginated queries
 - Load data in chunks of 50 items
 - Infinite scroll ready
@@ -205,12 +230,14 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🔍 **10. Monitoring & Debugging**
 
 ### Development Tools
+
 - Memory usage monitor
 - Performance logging
 - Error boundary with stack traces
 - Network speed detection
 
 ### Production Ready
+
 - Error logging hooks (ready for Sentry)
 - Performance metrics tracking
 - User analytics ready
@@ -220,6 +247,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 📈 **Expected Performance Metrics**
 
 ### Before Optimizations:
+
 - Initial Load: ~5-8 seconds
 - Time to Interactive: ~8-10 seconds
 - Lighthouse Score: ~60
@@ -227,6 +255,7 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 - Memory Usage: ~150MB per user
 
 ### After Optimizations:
+
 - Initial Load: ~2-3 seconds ✅
 - Time to Interactive: ~3-4 seconds ✅
 - Lighthouse Score: ~90+ ✅
@@ -252,19 +281,21 @@ This document outlines all optimizations implemented to handle 100,000+ concurre
 ## 🔧 **Implementation Notes**
 
 ### To Use IndexedDB:
+
 ```typescript
-import { indexedDBService, storageService } from './utils/indexedDBService';
+import { indexedDBService, storageService } from "./utils/indexedDBService";
 
 // Store data
-await storageService.set('userPrefs', { theme: 'dark' });
+await storageService.set("userPrefs", { theme: "dark" });
 
 // Retrieve data
-const prefs = await storageService.get('userPrefs');
+const prefs = await storageService.get("userPrefs");
 ```
 
 ### To Use Security Utils:
+
 ```typescript
-import { sanitizeInput, validateAmount } from './utils/securityUtils';
+import { sanitizeInput, validateAmount } from "./utils/securityUtils";
 
 // Sanitize user input
 const clean = sanitizeInput(userInput);
@@ -274,8 +305,9 @@ const { valid, error } = validateAmount(amount);
 ```
 
 ### To Use Performance Utils:
+
 ```typescript
-import { debounce, isLowEndDevice } from './utils/performanceUtils';
+import { debounce, isLowEndDevice } from "./utils/performanceUtils";
 
 // Debounce search
 const debouncedSearch = debounce(searchFunction, 300);
@@ -323,6 +355,7 @@ if (isLowEndDevice()) {
 ## 📞 **Support & Maintenance**
 
 For questions or issues:
+
 1. Check console for error logs
 2. Review IndexedDB storage in DevTools
 3. Check service worker status in DevTools
