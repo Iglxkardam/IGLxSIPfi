@@ -4,14 +4,10 @@ import { abstractTestnet } from 'viem/chains'
 import App from './App.tsx'
 import './index.css'
 import { registerServiceWorker } from './utils/serviceWorkerRegistration'
-import { initializeSecurity } from './utils/advancedSecurity'
-import { initializeAdvancedProtection } from './utils/advancedProtection'
+import { initializeSecurity } from './utils/security'
 
-// Initialize advanced security measures
+// Initialize minimal security (like Uniswap/Hyperliquid)
 initializeSecurity();
-
-// Initialize advanced protection (keylogger, screen capture, malicious extensions)
-initializeAdvancedProtection();
 
 // Register service worker for PWA functionality
 registerServiceWorker();

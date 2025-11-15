@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { verifyTransactionSafety, TransactionData } from '../utils/advancedSecurity';
+import { isValidAddress } from '../utils/security';
+
+export interface TransactionData {
+  to: string;
+  value: string;
+  data?: string;
+  from?: string;
+}
 
 interface TransactionGuardProps {
   transaction: TransactionData;
@@ -29,7 +36,26 @@ export const TransactionGuard: React.FC<TransactionGuardProps> = ({
     }
   }, [isOpen, countdown]);
 
-  const safety = verifyTransactionSafety(transaction);
+  // Basic safety check
+  const safety = {
+    safe: isValidAddress(transaction.to),
+    critical: false,
+    warnings: [] as string[]
+  };
+
+  if (!isValidAddress(transaction.to)) {
+    safety.warnings.push('Invalid recipient address format');
+    safety.critical = true;
+  }
+
+  const value = parseFloat(transaction.value);
+  if (value > 10) {
+    safety.warnings.push('Large transaction amount detected');
+  }
+
+  if (transaction.data && transaction.data.length > 1000) {
+    safety.warnings.push('Complex contract interaction detected');
+  }
 
   if (!isOpen) return null;
 
@@ -71,7 +97,7 @@ export const TransactionGuard: React.FC<TransactionGuardProps> = ({
             </div>
             {safety.warnings.length > 0 && (
               <ul className="space-y-2 mt-4">
-                {safety.warnings.map((warning, i) => (
+                {safety.warnings.map((warning: string, i: number) => (
                   <li key={i} className="text-yellow-300 flex items-start gap-2">
                     <span>⚠️</span>
                     <span>{warning}</span>
