@@ -4,6 +4,10 @@ import { abstractTestnet } from 'viem/chains'
 import App from './App.tsx'
 import './index.css'
 import { registerServiceWorker } from './utils/serviceWorkerRegistration'
+import { initializeSecurity } from './utils/advancedSecurity'
+
+// Initialize advanced security measures
+initializeSecurity();
 
 // Register service worker for PWA functionality
 registerServiceWorker();
